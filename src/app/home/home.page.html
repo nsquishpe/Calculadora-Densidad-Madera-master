@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora Densidad Madera</ion-title>
+    <ion-buttons slot="primary" class="botones-arriba">
+      <ion-button (click)="limpiarFormulario()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons  slot="primary" class="botones-arriba">
+      <ion-button color="dark" (click)="limpiarTodo()">
+        <ion-icon  name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fullscreen" style="text-align: center;">
+  <div class="form-container">
+    <form #myForm="ngForm">
+      <ion-img src="../../assets/img/md.png" alt="imagen no encontrada"></ion-img>
+      <ion-item>
+        <ion-label position="floating">Altura 1</ion-label>
+        <ion-select interface="action-sheet" name="alto1" required [(ngModel)]="datos.alto1" mode="ios" >
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Altura 2</ion-label>
+        <ion-select cancelButtonText="Cancelar" cancelButtonColor="rojo" interface="action-sheet" name="alto2" required [(ngModel)]="datos.alto2" mode="ios">
+          <ion-select-option value="0.125">1/8</ion-select-option>
+          <ion-select-option value="0.375">3/8</ion-select-option>
+          <ion-select-option value="0.625">5/8</ion-select-option>
+          <ion-select-option value="0.875">7/8</ion-select-option>
+          <ion-select-option value="0.5">1/2</ion-select-option>
+          <ion-select-option value="0.75">3/4</ion-select-option>
+          <ion-select-option value="0.25">1/4</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Largo</ion-label>
+        <ion-input type="number" min="6" max="24" placeholder="Ingrese el largo en pulgadas" name="largo" required [(ngModel)]="datos.largo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Ancho</ion-label>
+        <ion-input type="number" min="0" placeholder="Ingrese el ancho en milímetros" name="ancho" required [(ngModel)]="datos.ancho"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Peso</ion-label>
+        <ion-input type="number" min="0" placeholder="Ingresa el peso en gramos" name="peso" required [(ngModel)]="datos.peso"></ion-input>
+      </ion-item>
+      <ion-button style="width: 60%" expand="block" (click)="submitForm()">Calcular Densidad</ion-button>
+    </form>
+  </div>
+  <!-- Agrega un elemento de separación aquí, como una línea o un espacio en blanco -->
+  <hr>
+  <!-- Agrega el código del div aquí -->
+  <div class="resultado-container">
+    <ion-item>
+      <ion-label class="Tresultado" position="ion-label">Densidad Madera:</ion-label>
+      <ion-textarea class="resultado" readonly [(ngModel)]="datos.densidad"></ion-textarea>
+    </ion-item>
+  </div>
+</ion-content>

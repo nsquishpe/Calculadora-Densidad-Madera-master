@@ -1,0 +1,7 @@
+{
+  "name": "Calculadora-Densidad-Madera",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
